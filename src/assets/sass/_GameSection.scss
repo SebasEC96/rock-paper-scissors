@@ -42,7 +42,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   justify-items: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
   gap: 1rem;
   width: 100%;
   @media (min-width: $tablet) {
@@ -51,6 +51,10 @@
   @media (min-width: $desktopHD) {
     width: 30rem;
     background-size: 65%;
+  }
+  @media (min-width: $desktopFHD) {
+    margin-top: 6rem;
+
   }
   .first_element {
     grid-column: 3;

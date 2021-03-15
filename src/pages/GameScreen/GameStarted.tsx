@@ -76,10 +76,8 @@ const GameStarted = (props: IGameStartedProps) => {
         }
       } else if (gameMode === "expansion") {
         const n_points = localStorage.getItem("expansion_points") as string;
-        console.log(n_points);
         if (result === "Won") {
           const new_points = parseInt(n_points) + 1;
-          console.log({ new_points });
           localStorage.setItem("expansion_points", `${new_points}`);
         } else if (result === "Lose" && parseInt(n_points) > 0) {
           const new_points = parseInt(n_points) - 1;

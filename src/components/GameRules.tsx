@@ -22,9 +22,10 @@ export const GameRules = (props: IGameRulesProps) => {
 
   return (
     <Modal
+      className="rules_modal"
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      appElement={document.getElementById('root') as HTMLElement}
+      appElement={document.getElementById("root") as HTMLElement}
       style={{
         overlay: {
           position: "fixed",
@@ -35,15 +36,15 @@ export const GameRules = (props: IGameRulesProps) => {
           backgroundColor: "rgba(255, 255, 255, 0.10)",
         },
         content: {
+          top: "50%",
+          left: "50%",
+          right: "auto",
+          bottom: "auto",
+          marginRight: "-50%",
+          transform: "translate(-50%, -50%)",
           position: "absolute",
-          top: "30%",
-          left: "10%",
-          right: "10%",
-          bottom: "30%",
           border: "0",
           background: "#fff",
-          overflow: "auto",
-          WebkitOverflowScrolling: "touch",
           borderRadius: "4px",
           outline: "none",
           padding: "20px",

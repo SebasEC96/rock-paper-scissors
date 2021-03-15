@@ -35,8 +35,8 @@ export const GameScreen = (props: IGameScreenProps) => {
       {gameStatus !== "standBy" && gameStatus !== "menu" && (
         <GameStarted option={selectedOption} />
       )}
-      <GameRules gameType={gameType} />
       {gameStatus !== "menu" && <ModalBtn />}
+      <GameRules gameType={gameType} />
     </div>
   );
 };

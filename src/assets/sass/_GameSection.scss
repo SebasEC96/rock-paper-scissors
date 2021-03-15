@@ -1,0 +1,79 @@
+.game_section_normal {
+  background: url("../images/bg-triangle.svg") no-repeat;
+  background-size: 50%;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "elem1 elem2"
+  "elem3 elem3";
+  justify-items: center;
+  margin-top: 4rem;
+  width: 100%;
+  
+  @media (min-width: $tablet) {
+    width: 20rem;
+  }
+  @media (min-width: $desktopHD) {
+    align-items: center;
+    background-size: 65%;
+    width: 30rem;
+    height: 30rem;
+
+    .first_element {
+      justify-self: left;
+    }
+    .second_element {
+      justify-self: right;
+    }
+  }
+  
+  .third_element {
+    grid-column: span 2;
+    justify-self: center;
+  }
+}
+.game_section_expansion {
+  background: url("../images/bg-pentagon.svg") no-repeat;
+  background-size: 75%;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+  margin-top: 4rem;
+  gap: 1rem;
+  width: 100%;
+  @media (min-width: $tablet) {
+    width: 20rem;
+  }
+  @media (min-width: $desktopHD) {
+    width: 30rem;
+    background-size: 65%;
+  }
+  .first_element {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .second_element {
+    grid-column: span 2;
+    grid-row: 2;
+    justify-self: center;
+  }
+  .third_element {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row: 2;
+    justify-self: center;
+  }
+  .lower_section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    grid-column: span 5;
+    grid-row: 3;
+  }
+}

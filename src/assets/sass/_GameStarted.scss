@@ -1,0 +1,61 @@
+.game_started {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 4rem;
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+      margin-top: 1rem;
+      color: $score-background;
+      font-size: 0.9rem;
+      letter-spacing: 0.05rem;
+    }
+    .blue-circle {
+      background: $linear-gradient;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50rem;
+      cursor: pointer;
+
+      @media (min-width: $desktopHD) {
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+  }
+
+  .game_result {
+    display: grid;
+    grid-column: span 2;
+    margin: 4rem 0;
+    justify-content: center;
+
+    h3 {
+      color: $score-background;
+      margin: 0.5rem 0;
+      text-align: center;
+      font-size: 3rem;
+    }
+    button {
+      font-size: 0.75rem;
+      color: $dark-text;
+      font-weight: 600;
+      letter-spacing: 0.15rem;
+      padding: 0.5rem 0.5rem;
+      border-radius: 0.75rem;
+      justify-self: center;
+
+      &:hover {
+        background: $dark-text;
+        color: $score-background;
+      }
+    }
+  }
+}

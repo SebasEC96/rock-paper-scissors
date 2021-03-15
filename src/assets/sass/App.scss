@@ -1,0 +1,70 @@
+// --------------------------COLORS--------------------------
+// Primary
+$scissors-gradient: linear-gradient(
+  to top,
+  hsl(39, 89%, 49%),
+  hsl(40, 84%, 53%)
+);
+$scissors-shadow: #c76d17;
+$paper-gradient: linear-gradient(
+  to top,
+  hsl(230, 89%, 62%),
+  hsl(230, 89%, 65%)
+);
+$paper-shadow: #2844c2;
+$rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$rock-shadow: #9e1533;
+$lizard-gradient: linear-gradient(
+  to top,
+  hsl(261, 73%, 60%),
+  hsl(261, 72%, 63%)
+);
+$lizard-shadow: #5e34a8;
+$spock-gradient: linear-gradient(
+  to top,
+  hsl(189, 59%, 53%),
+  hsl(189, 58%, 57%)
+);
+$spock-shadow: #2d8fad;
+//Neutral
+$dark-text: hsl(229, 25%, 31%);
+$score-text: hsl(229, 64%, 46%);
+$score-background: #fdfdfd;
+$header-outline: hsl(217, 16%, 45%);
+// Background
+$radial-gradient: radial-gradient(circle at top, #1e3757, #181e40);
+// Option Circle bg
+$linear-gradient: linear-gradient(to bottom, #192947, #192744);
+// --------------------------BREAKPOINTS--------------------------
+$tablet: 768px;
+$desktopHD: 1024px;
+$tabletFHD: 1920px;
+// --------------------------IMPORTS--------------------------
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"); // Font Family Barlow Semi Condensed
+@import "./Header";
+@import "./GameOption";
+@import "./GameSection";
+@import "./GameStarted";
+@import "./ModalBtn";
+@import "./GameRules";
+@import "./GameMenu";
+// --------------------------STYLES--------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  background: $radial-gradient no-repeat;
+  height: 100vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+
+  .container {
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

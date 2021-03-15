@@ -1,0 +1,32 @@
+.modal_btn {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 5rem;
+  text-align: center;
+  @media (min-width: $desktopHD) {
+    bottom: 0;
+    right: 0;
+    left: auto;
+  }
+  button {
+    color: $score-background;
+    background: transparent;
+    border: 2px solid $header-outline;
+    font-size: 0.75rem;
+    color: $dark-text;
+    font-weight: 600;
+    letter-spacing: 0.15rem;
+    width: 5rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.75rem;
+    outline: none;
+    margin: 1rem;
+    &:hover {
+      background: $dark-text;
+      color: $score-background;
+    }
+  }
+}

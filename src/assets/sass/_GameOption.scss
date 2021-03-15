@@ -1,0 +1,59 @@
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50rem;
+  cursor: pointer;
+
+  @media (min-width: $desktopHD) {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .inner_circle {
+    background: $score-background;
+    border-radius: 50rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0.25rem #bec0d4;
+
+    @media (min-width: $desktopHD) {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+
+    img {
+      width: 2.25rem;
+
+      @media (min-width: $desktopHD) {
+        width: 3.25rem;
+      }
+    }
+  }
+}
+
+.paper {
+  background: $paper-gradient;
+  box-shadow: inset 0 -0.25rem $paper-shadow;
+}
+.scissors {
+  background: $scissors-gradient;
+  box-shadow: inset 0 -0.25rem $scissors-shadow;
+}
+.rock {
+  background: $rock-gradient;
+  box-shadow: inset 0 -0.25rem $rock-shadow;
+}
+.lizard {
+  background: $lizard-gradient;
+  box-shadow: inset 0 -0.25rem $lizard-shadow;
+}
+.spock {
+  background: $spock-gradient;
+  box-shadow: inset 0 -0.25rem $spock-shadow;
+}

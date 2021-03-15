@@ -1,0 +1,57 @@
+.header-score {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid $header-outline;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 18rem;
+
+  @media (min-width: $tablet) {
+    width: 25rem;
+  }
+  @media (min-width: $desktopHD) {
+    width: 40rem;
+    padding: 1rem;
+  }
+
+  .logo {
+    width: 5rem;
+    padding: 0.5rem;
+
+    @media (min-width: $desktopHD) {
+      width: 10rem;
+    }
+  }
+
+  .score {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: $score-background;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+
+    span {
+      color: $score-text;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.05rem;
+      @media (min-width: $desktopHD) {
+        font-size: 1rem;
+      }
+    }
+    p {
+      color: $dark-text;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 2rem;
+      text-align: center;
+      @media (min-width: $desktopHD) {
+        line-height: 3rem;
+        font-size: 4rem;
+      }
+    }
+  }
+}

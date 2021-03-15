@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   margin-top: 4rem;
+
+   @media (min-width: $desktopHD) {
+      width: 30rem;
+    }
   .options {
     display: flex;
     flex-direction: column;
@@ -34,7 +38,7 @@
   .game_result {
     display: grid;
     grid-column: span 2;
-    margin: 4rem 0;
+    margin: 2rem 0;
     justify-content: center;
 
     h3 {
@@ -51,10 +55,16 @@
       padding: 0.5rem 0.5rem;
       border-radius: 0.75rem;
       justify-self: center;
+      outline: none;
+      border: 0;
 
       &:hover {
         background: $dark-text;
         color: $score-background;
+      }
+      &:active {
+        background: $score-background;
+        color: $dark-text;
       }
     }
   }

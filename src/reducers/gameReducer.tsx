@@ -43,11 +43,9 @@ export type ActionType =
     }
   | {
       type: "RESET_NORMAL_SCORE";
-      payload: { scoreNormal: number };
     }
   | {
       type: "RESET_EXPANSION_SCORE";
-      payload: { scoreExpansion: number };
     };
 
 export const gameReducer = (state: InitialStateType, action: ActionType) => {

@@ -25,6 +25,24 @@
     }
   }
 
+  .btn_reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $score-background;
+    color: $score-text;
+    outline: none;
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+
+    &:hover {
+      background: $dark-text;
+    }
+    &:active {
+      background: $score-background;
+    }
+  }
   .score {
     display: flex;
     align-items: center;

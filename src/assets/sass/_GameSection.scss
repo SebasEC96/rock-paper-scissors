@@ -17,16 +17,10 @@
   }
   @media (min-width: $desktopHD) {
     align-items: center;
-    background-size: 65%;
+    background-size: 60%;
     width: 30rem;
     height: 30rem;
 
-    .first_element {
-      justify-self: left;
-    }
-    .second_element {
-      justify-self: right;
-    }
   }
   
   .third_element {
@@ -54,7 +48,6 @@
   }
   @media (min-width: $desktopFHD) {
     margin-top: 6rem;
-
   }
   .first_element {
     grid-column: 3;

@@ -7,11 +7,14 @@
    @media (min-width: $desktopHD) {
       width: 30rem;
     }
-  .options {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .options {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @media (min-width: $desktopHD) {
+         margin-top: 4rem;
+       }
     span {
       margin-top: 1rem;
       color: $score-background;

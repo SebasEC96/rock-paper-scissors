@@ -93,6 +93,7 @@ const GameStarted = (props: IGameStartedProps) => {
           type: "UPDATE_NORMAL_SCORE",
           payload: { gameResult: "Won" },
         });
+        console.log("you won");
         updateLocalStorage("normal", "Won");
       } else {
         dispatch({

@@ -17,7 +17,6 @@ export const GameMenu = () => {
   };
   useEffect(() => {
     const normal_points = localStorage.getItem("normal_points") as string;
-    console.log(normal_points);
     if (normal_points !== null) {
       dispatch({
         type: "UPDATE_LOCALSTORAGE_NORMAL",

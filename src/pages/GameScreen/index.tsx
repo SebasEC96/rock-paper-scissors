@@ -7,9 +7,7 @@ import { GameRules } from "../../components/GameRules";
 import { ModalBtn } from "../../components/ModalBtn";
 import { GameMenu } from "./GameMenu";
 
-interface IGameScreenProps {}
-
-export const GameScreen = (props: IGameScreenProps) => {
+export const GameScreen = () => {
   const {
     gameState: { gameStatus, gameType, selectedOption },
   } = useContext(GameContext);

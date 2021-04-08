@@ -1,4 +1,4 @@
-import { GameOption } from "../../components/GameOption";
+import { GameOption } from "./GameOption";
 
 interface IGameSectionProps {
   gameType: string;

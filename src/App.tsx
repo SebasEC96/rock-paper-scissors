@@ -1,5 +1,5 @@
-import { GameScreen } from "./pages";
 import { GameProvider } from "./context/gameContext";
+import { GameScreen } from "./pages/GameScreen";
 
 interface Props {}
 

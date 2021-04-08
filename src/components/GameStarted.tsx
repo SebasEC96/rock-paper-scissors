@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { GameOption } from "../../components/GameOption";
-import { GameContext } from "../../context/gameContext";
+import { GameOption } from "./GameOption";
+import { GameContext } from "../context/gameContext";
 
 interface IGameStartedProps {
   option: string;
@@ -14,6 +14,8 @@ const GameStarted = (props: IGameStartedProps) => {
       gameResult,
       selectedOption,
       botSelectedOption,
+      scoreExpansion,
+      scoreNormal,
     },
     dispatch,
   } = useContext(GameContext);
@@ -64,26 +66,10 @@ const GameStarted = (props: IGameStartedProps) => {
     const pickedRules = rules[selectedOption as keyof IRulesProps];
     let result: string = "";
 
-    const updateLocalStorage = (gameMode: string, result: string) => {
-      if (gameMode === "normal") {
-        const n_points = localStorage.getItem("normal_points") as string;
-        if (result === "Won") {
-          const new_points = parseInt(n_points) + 1;
-          localStorage.setItem("normal_points", `${new_points}`);
-        } else if (result === "Lose" && parseInt(n_points) > 0) {
-          const new_points = parseInt(n_points) - 1;
-          localStorage.setItem("normal_points", `${new_points}`);
-        }
-      } else if (gameMode === "expansion") {
-        const n_points = localStorage.getItem("expansion_points") as string;
-        if (result === "Won") {
-          const new_points = parseInt(n_points) + 1;
-          localStorage.setItem("expansion_points", `${new_points}`);
-        } else if (result === "Lose" && parseInt(n_points) > 0) {
-          const new_points = parseInt(n_points) - 1;
-          localStorage.setItem("expansion_points", `${new_points}`);
-        }
-      }
+    const updateLocalStorage = (gameMode: string, result: number) => {
+      const n_points = localStorage.getItem(`${gameMode}_points`) as string;
+      const new_points = parseInt(n_points) + result;
+      localStorage.setItem(`${gameMode}_points`, `${new_points}`);
     };
 
     if (pickedRules.win.includes(option)) {
@@ -91,33 +77,36 @@ const GameStarted = (props: IGameStartedProps) => {
       if (gameType === "normal") {
         dispatch({
           type: "UPDATE_NORMAL_SCORE",
-          payload: { gameResult: "Won" },
+          payload: { score: 1 },
         });
-        console.log("you won");
-        updateLocalStorage("normal", "Won");
+        updateLocalStorage("normal", 1);
       } else {
         dispatch({
           type: "UPDATE_EXPANSION_SCORE",
-          payload: { gameResult: "Won" },
+          payload: { score: 1 },
         });
-        updateLocalStorage("expansion", "Won");
+        updateLocalStorage("expansion", 1);
       }
     } else if (selectedOption === option) {
       result = "DRAW";
     } else {
       result = "YOU LOSE";
       if (gameType === "normal") {
-        dispatch({
-          type: "UPDATE_NORMAL_SCORE",
-          payload: { gameResult: "Lose" },
-        });
-        updateLocalStorage("normal", "Lose");
+        if (scoreNormal > 0) {
+          dispatch({
+            type: "UPDATE_NORMAL_SCORE",
+            payload: { score: -1 },
+          });
+          updateLocalStorage("normal", -1);
+        }
       } else {
-        dispatch({
-          type: "UPDATE_EXPANSION_SCORE",
-          payload: { gameResult: "Lose" },
-        });
-        updateLocalStorage("expansion", "Lose");
+        if (scoreExpansion > 0) {
+          dispatch({
+            type: "UPDATE_EXPANSION_SCORE",
+            payload: { score: -1 },
+          });
+          updateLocalStorage("expansion", -1);
+        }
       }
     }
     dispatch({
@@ -127,7 +116,7 @@ const GameStarted = (props: IGameStartedProps) => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setTimeout(async () => {
       const botOption = randomChoice();
       dispatch({
         type: "GAME_BOT_OPTION",
@@ -135,7 +124,7 @@ const GameStarted = (props: IGameStartedProps) => {
           botSelectedOption: botOption,
         },
       });
-      checkResult(botOption);
+      await checkResult(botOption);
       dispatch({
         type: "GAME_STATUS",
         payload: {

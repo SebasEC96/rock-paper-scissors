@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { GameContext } from "../../context/gameContext";
-import Logo from "../../assets/images/logo.svg";
+import { GameContext } from "../context/gameContext";
+import Logo from "../assets/images/logo.svg";
 
 export const GameMenu = () => {
   type gameType = "normal" | "expansion";
@@ -17,21 +17,24 @@ export const GameMenu = () => {
   };
   useEffect(() => {
     const normal_points = localStorage.getItem("normal_points") as string;
-    dispatch({
-      type: "UPDATE_NORMAL_SCORE",
-      payload: {
-        gameResult: "SetLocalStorage",
-        score: parseInt(normal_points),
-      },
-    });
+    console.log(normal_points);
+    if (normal_points !== null) {
+      dispatch({
+        type: "UPDATE_LOCALSTORAGE_NORMAL",
+        payload: {
+          normalScore: parseInt(normal_points),
+        },
+      });
+    }
     const expansion_points = localStorage.getItem("expansion_points") as string;
-    dispatch({
-      type: "UPDATE_EXPANSION_SCORE",
-      payload: {
-        gameResult: "SetLocalStorage",
-        score: parseInt(expansion_points),
-      },
-    });
+    if (expansion_points !== null) {
+      dispatch({
+        type: "UPDATE_LOCALSTORAGE_EXPANSION",
+        payload: {
+          expansionScore: parseInt(expansion_points),
+        },
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

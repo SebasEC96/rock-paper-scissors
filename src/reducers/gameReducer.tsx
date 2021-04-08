@@ -35,11 +35,19 @@ export type ActionType =
     }
   | {
       type: "UPDATE_NORMAL_SCORE";
-      payload: { gameResult: string; score?: number };
+      payload: { score: number };
     }
   | {
       type: "UPDATE_EXPANSION_SCORE";
-      payload: { gameResult: string; score?: number };
+      payload: { score: number };
+    }
+  | {
+      type: "UPDATE_LOCALSTORAGE_NORMAL";
+      payload: { normalScore: number };
+    }
+  | {
+      type: "UPDATE_LOCALSTORAGE_EXPANSION";
+      payload: { expansionScore: number };
     }
   | {
       type: "RESET_NORMAL_SCORE";
@@ -81,55 +89,25 @@ export const gameReducer = (state: InitialStateType, action: ActionType) => {
         botSelectedOption: action.payload.botSelectedOption,
       };
     case "UPDATE_NORMAL_SCORE":
-      if (action.payload.gameResult === "Won") {
-        return {
-          ...state,
-          scoreNormal: state.scoreNormal++,
-        };
-      } else if (
-        action.payload.gameResult === "Lose" &&
-        state.scoreNormal > 0
-      ) {
-        return {
-          ...state,
-          scoreNormal: state.scoreNormal--,
-        };
-      } else if (
-        action.payload.gameResult === "SetLocalStorage" &&
-        action.payload.score
-      ) {
-        return {
-          ...state,
-          scoreNormal: action.payload.score,
-        };
-      } else {
-        return state;
-      }
+      return {
+        ...state,
+        scoreNormal: state.scoreNormal + action.payload.score,
+      };
     case "UPDATE_EXPANSION_SCORE":
-      if (action.payload.gameResult === "Won") {
-        return {
-          ...state,
-          scoreExpansion: state.scoreExpansion++,
-        };
-      } else if (
-        action.payload.gameResult === "Lose" &&
-        state.scoreExpansion > 0
-      ) {
-        return {
-          ...state,
-          scoreExpansion: state.scoreExpansion--,
-        };
-      } else if (
-        action.payload.gameResult === "SetLocalStorage" &&
-        action.payload.score
-      ) {
-        return {
-          ...state,
-          scoreExpansion: action.payload.score,
-        };
-      } else {
-        return state;
-      }
+      return {
+        ...state,
+        scoreExpansion: state.scoreExpansion + action.payload.score,
+      };
+    case "UPDATE_LOCALSTORAGE_NORMAL":
+      return {
+        ...state,
+        scoreNormal: action.payload.normalScore,
+      };
+    case "UPDATE_LOCALSTORAGE_EXPANSION":
+      return {
+        ...state,
+        scoreExpansion: action.payload.expansionScore,
+      };
     case "RESET_NORMAL_SCORE":
       return {
         ...state,

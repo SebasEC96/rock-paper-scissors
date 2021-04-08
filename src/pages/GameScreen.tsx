@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
-import { GameContext } from "../../context/gameContext";
-import GameStarted from "./GameStarted";
-import Header from "../../components/Header";
-import GameSection from "./GameSection";
-import { GameRules } from "../../components/GameRules";
-import { ModalBtn } from "../../components/ModalBtn";
-import { GameMenu } from "./GameMenu";
+import { GameContext } from "../context/gameContext";
+import GameStarted from "../components/GameStarted";
+import Header from "../components/Header";
+import GameSection from "../components/GameSection";
+import { GameRules } from "../components/GameRules";
+import { ModalBtn } from "../components/ModalBtn";
+import { GameMenu } from "../components/GameMenu";
 
 export const GameScreen = () => {
   const {
